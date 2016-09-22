@@ -16,11 +16,13 @@ while (have_posts()) : the_post(); ?>
 						</div>		
 				<?php endif; ?>
 				<!-- /post thumbnail -->
-				<div class="grid1-3">
+				<div class="grid1-3 post-information">
 				<!-- post details -->
-				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-				<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+				
+				<span class="date"><strong><?php _e( 'Published ', 'html5blank' ); ?></strong> <?php the_time('F j, Y'); ?></span><br>
+				<span class="author"><strong><?php _e( 'by ', 'html5blank' ); ?></strong> <?php the_author_posts_link(); ?></span><br>
+				
+				<span class="category"><strong><?php _e( 'category: ', 'html5blank' );  ?></strong> <?php the_category(', '); // Separated by commas ?></span>
 				<!-- /post details -->
 			</div> <!-- .grid1-3 -->				
 			<?php } else { ?>
@@ -42,7 +44,7 @@ while (have_posts()) : the_post(); ?>
 			
 			
 
-			<div class="grid2-3">
+			<div class="grid2-3 blog-list-excerpt">
 				<!-- post title -->
 				<h3>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
@@ -54,7 +56,7 @@ while (have_posts()) : the_post(); ?>
 		</div> <!-- .clear -->
 
 
-		<?php edit_post_link(); ?>
+		<?php //edit_post_link(); ?>
 
 	</article>
 	<!-- /article -->

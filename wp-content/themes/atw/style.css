@@ -129,8 +129,8 @@ input:focus {
 	height: 300px;
 	width: 100%;
 	background-size: cover;
-	background-attachment: fixed;
-	background-position: bottom center;
+	background-attachment: scroll; /* tag:MY NOTES - 'fixed' value will add parallax effect. but to center featured image especially in single blog page, I removed the 'fixed' and changed to 'scroll'*/
+	background-position: center center; /* changed 'bottom center' to 'center center' to align featured image in single blog properly. but this affected all featured images in all pages. Just something to note. */
 }
 
 .featuredImage:after {
@@ -407,6 +407,31 @@ article.post h3 a {
 	font-weight: normal;
 
 }
+
+article.post a {
+	color: #e1800d;
+	font-weight: bold;
+}
+article.post .post-information {
+	text-align: left;	
+	color: #5e5e5e;
+}
+
+@media only screen and (min-width:768px) {
+	article.post .post-information {
+		text-align: right;	
+	}
+
+	article.post p {
+		margin-top: 0;
+	}
+}
+
+.share-buttons {
+	color: #e1800d;
+	margin-top: 12px;
+}
+
 
 /*** GRID ***/
 /* support for the selector below is IE 9 or above. So it won't work on older browsers */
