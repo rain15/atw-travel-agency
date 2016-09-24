@@ -52,6 +52,7 @@
 							<p class="date"><?php echo $startDate . ' - ' . $endDate ?></p>
 							<p class="price"><?php the_field('price'); ?></p>
 						</div> <!-- .date-price -->
+						
 						<div class="tour-description">
 							<?php the_field('short_description'); ?>
 						</div>

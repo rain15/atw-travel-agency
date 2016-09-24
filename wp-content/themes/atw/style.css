@@ -509,6 +509,80 @@ section.slider .bx-viewport {
  	background-postion: 0px 0px !important;
 }
 
+/* Upcoming Tours */
+.upcoming-tours ul {
+	padding: 0;
+	list-style: none;
+}
+
+.upcoming-tours div.image {
+	position: relative;
+}
+
+.upcoming-tours ul li{
+	margin-bottom: 20px;
+}
+
+
+.upcoming-tours div.image .more {
+	position: absolute;
+	top: 11px;
+    right: -13px;
+    width: 110px;
+}
+
+.upcoming-tours div.content-tours {
+	background-color: #e1800d;
+	padding: 10px 0;
+}
+
+.upcoming-tours div.content-tours h3,
+.upcoming-tours div.content-tours p,
+.upcoming-tours div.content-tours a {
+	color: #fff;
+	text-align: center;
+	margin: 0;
+}
+
+/** Latest entried in front page **/
+.latest-entries ul {
+	padding: 0;
+	list-style: none;
+	
+}
+
+.latest-entries ul li {
+	margin-bottom: 30px;
+}
+
+.latest-entries ul li h3 {
+	margin: 0;
+	font-size: 20px;
+	font-size: 2rem;
+	color: #e1800d;
+	font-weight: normal;
+}
+
+.latest-entries ul li p {
+	margin: 0;
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+.latest-entries ul li a.view-article {
+	background-color: #e1800d;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 15px;
+	border-radius: 10px;
+	display: block; /*so that it shows on a separate line*/
+	width: 40%; /* so that it does not span the width of the div due to display:block being set*/
+	margin-top: 11px;
+}
+
+
 /*** GRID ***/
 /* support for the selector below is IE 9 or above. So it won't work on older browsers */
 [class*='grid'] {

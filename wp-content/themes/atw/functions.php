@@ -34,6 +34,44 @@ function slider() {
 
 add_action('wphp_slider', 'slider');
 
+
+/************ RESPONSIVE IMAGES *******/
+/**
+ * Create function my_responsive_thumbnail() to output responsive featured image
+ * Function can be called from within the loop of any template file using
+ * my_responsive_thumbnail(get_the_ID());
+ * Based on https://www.lynda.com/articles/create-responsive-featured-images-wordpress
+ */
+
+ function my_responsive_thumbnail($post_id){
+     // Get the featured image ID
+     $attachment_id = get_post_thumbnail_id($post_id);
+
+     // Get the info for each image size including the original (full)
+     $thumb_large    = wp_get_attachment_image_src($attachment_id, 'tourFront');
+     $thumb_medium   = wp_get_attachment_image_src($attachment_id, 'featuredTour');
+
+     // Create array containing each image size + the alt tag
+     $thumb_data = array(
+         'thumb_large'    => $thumb_large[0],
+         'thumb_medium'   => $thumb_medium[0],
+     );
+
+     // Echo out <picture> element based on code from above
+     echo '<picture>';
+     echo '<!--[if IE 9]><video style="display: none;"><![endif]-->'; // Fallback for IE9
+     echo '<source srcset="' . $thumb_data['thumb_large'] . ', ' . $thumb_data['thumb_large'] . ' " media="(min-width: 800px)">';
+     echo '<source srcset="' . $thumb_data['thumb_medium'] . ', ' . $thumb_data['thumb_medium'] . ' ">';
+     echo '<!--[if IE 9]></video><![endif]-->'; // Fallback for IE9
+     echo '<img srcset="' . $thumb_data['thumb_large'] . ', ' . $thumb_data['thumb_large'] .' " >';
+     echo '</picture>';
+ }
+
+
+
+
+/********** end of RESPONSIVE IMAGES *********/
+
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/
@@ -55,6 +93,8 @@ if (function_exists('add_theme_support'))
     add_image_size('featuredTour', 730, 390, true );
     add_image_size('featuredBlog', 1280, 444, true );
     add_image_size('slider', 1500, 500, true );
+    add_image_size('tourFront', 430, 300, true );
+
 
 
 
@@ -131,6 +171,9 @@ function html5blank_header_scripts()
         wp_register_script('bxsliderjs', get_template_directory_uri() . '/js/jquery.bxslider.js', array(), '4.1.2'); // BxSlider
         wp_enqueue_script('bxsliderjs'); // Enqueue it!
 
+        wp_register_script('picturefill', get_template_directory_uri() . '/js/picturefill.min.js', array(), '3.0.2'); // Picturefill
+        wp_enqueue_script('picturefill'); // Enqueue it!
+ 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
@@ -261,7 +304,7 @@ function html5wp_pagination()
 // Custom Excerpts
 function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 {
-    return 80;
+    return 60;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
@@ -291,7 +334,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Continue Reading', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar
