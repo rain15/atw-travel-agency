@@ -9,7 +9,30 @@
 	External Modules/Files
 \*------------------------------------*/
 
-// Load any external files you have here
+function slider() {
+
+    $args = array(
+        'post_type' => 'slider',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'posts_per_page' => 4
+    );
+
+    $slider = new WP_Query($args);
+    echo "<ul class='slider'>";
+    while($slider->have_posts()): $slider->the_post();
+        echo "<li>";
+        $link = get_home_url() . '/' . get_field('link');
+        echo "<a href='$link'>";
+        the_post_thumbnail('slider');
+        echo "</a>";
+        echo "</li>";
+    endwhile; wp_reset_postdata();
+    echo "</ul>";
+
+}
+
+add_action('wphp_slider', 'slider');
 
 /*------------------------------------*\
 	Theme Support
@@ -31,6 +54,8 @@ if (function_exists('add_theme_support'))
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
     add_image_size('featuredTour', 730, 390, true );
     add_image_size('featuredBlog', 1280, 444, true );
+    add_image_size('slider', 1500, 500, true );
+
 
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
@@ -100,8 +125,11 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '2.1.5'); // Modernizr
+        wp_register_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '2.1.5'); // Fancybox
         wp_enqueue_script('fancybox'); // Enqueue it!
+
+        wp_register_script('bxsliderjs', get_template_directory_uri() . '/js/jquery.bxslider.js', array(), '4.1.2'); // BxSlider
+        wp_enqueue_script('bxsliderjs'); // Enqueue it!
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -125,6 +153,9 @@ function html5blank_styles()
 
     wp_register_style('fancyboxcss', get_template_directory_uri() . '/css/jquery.fancybox.css', array(), '1.0', 'all');
     wp_enqueue_style('fancyboxcss'); // Enqueue it!
+
+    wp_register_style('bxslidercss', get_template_directory_uri() . '/css/jquery.bxslider.css', array(), '4.1.2', 'all');
+    wp_enqueue_style('bxslidercss'); // Enqueue it!
 
     wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('html5blank'); // Enqueue it!

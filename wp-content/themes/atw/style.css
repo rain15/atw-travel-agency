@@ -432,6 +432,82 @@ article.post .post-information {
 	margin-top: 12px;
 }
 
+/* Contact Form */
+.wpcf7-form {
+	margin: 0 auto; /*centers the form*/
+}
+
+@media only screen and (min-width:768px) {
+	.wpcf7-form {
+		width: 58%; /*centers the form*/
+		margin-left: 50%;
+	}
+}
+
+.wpcf7-form h3 {
+	color: #e1800d;
+	font-size: 17px;
+	font-size: 1.7rem;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 2px;
+	border-bottom: 3px solid #e1800d;
+}
+
+.wpcf7-form input,
+.wpcf7-form textarea {
+	box-shadow: inset 0 0 10px #e1e1e1;
+	-moz-box-shadow: inset 0 0 10px #e1e1e1;
+	-webkit-box-shadow: inset 0 0 10px #e1e1e1;
+	border: 1px solid #c0c0c0;
+	height: 30px;  
+	border-radius: 5px;
+	width: 100%;  
+	
+}
+
+.wpcf7-form textarea {
+	height: 200px;    
+}
+
+.wpcf7-form .wpcf7-submit {
+	color: #fff;
+	background-color: #e1800d;
+	box-shadow: none;
+	padding: 5px 20px;
+	width: auto; /*this makes the button fit to the text inside instead of matching width of the input elements inside the form. but this worked only when I set css selector be more specific from '.wpcf7-submit' to '.wpcf7-form .wpcf7-submit'*/
+	border: none;
+	float: right;
+} 
+
+/****** Front Page*/
+/* Slider */
+section.slider ul {
+	margin: 0;
+}
+section.slider .bx-viewport {
+	left: 0;
+	box-shadow: none;
+	border: none;
+}
+
+.bx-wrapper .bx-controls-direction a {
+	width: 44px;
+	height: 44px;
+	background: none;
+}
+.bx-wrapper .bx-prev,
+.bx-wrapper .bx-prev:hover {
+ 	left: 15px;
+ 	background-image: url('img/prev.png') !important;
+}
+
+.bx-wrapper .bx-next,
+.bx-wrapper .bx-next:hover {
+ 	right: 15px;
+ 	background-image: url('img/next.png') !important;
+ 	background-postion: 0px 0px !important;
+}
 
 /*** GRID ***/
 /* support for the selector below is IE 9 or above. So it won't work on older browsers */

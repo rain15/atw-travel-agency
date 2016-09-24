@@ -5,7 +5,7 @@
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
+        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico?v=6" rel="icon">
         <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -48,17 +48,22 @@
 					</div> <!-- wrapper -->
 				</div> <!-- .navcanvas -->
 
-				<?php if(is_home() && get_option('page_for_posts') ) { 
+				<?php if(is_home() && get_option('page_for_posts') ) :
 					$featured = wp_get_attachment_image_src(get_post_thumbnail_id( get_option('page_for_posts') ), 'full' ); 
 					$featured = $featured[0]; 
 				?>
 					<div class="featuredImage" style="background-image:url(<?php echo $featured; ?>)"></div> 
-				<?php } else {
+				<?php elseif ( is_front_page() ) : ?>
+					<section class="slider">
+						<?php //wphp_slider info is in functions.php: at line 12 ?>
+						<?php do_action( 'wphp_slider' ); ?>
+					</section>
+				<?php else :
 					$featured = wp_get_attachment_image_src(get_post_thumbnail_id( ), 'full' ); 
 					$featured = $featured[0];
 				?>
 					<div class="featuredImage" style="background-image:url(<?php echo $featured; ?>)"></div> 
-				<?php } ?>
+				<?php endif; ?>
 				
 			</header>
 			<!-- /header -->
