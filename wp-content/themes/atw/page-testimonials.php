@@ -40,7 +40,7 @@ get_header(); ?>
 
 					<li>
 						<h3><?php the_title(); ?></h3>
-						<div class="testimonial-content">
+						<div class="testimonial-content quote">
 							<?php the_content(); ?>
 						</div>
 						<div class="from-testimonial">

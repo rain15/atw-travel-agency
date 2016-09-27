@@ -68,8 +68,12 @@
 			</header>
 			<!-- /header -->
 
+
 	<main role="main">
 		<!-- section -->
 		<section class="main-container clear">
+			<div class="search-form clear">
+				<?php get_template_part('searchform'); ?>
 
+			</div>
 

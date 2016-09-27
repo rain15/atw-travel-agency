@@ -70,6 +70,17 @@ input:focus {
 	border:1px solid #04A4CC;
 }
 
+/* MY NOTES: added this for general layout */
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
 /*------------------------------------*\
     STRUCTURE
 \*------------------------------------*/
@@ -110,9 +121,10 @@ input:focus {
 .nav ul li {
 	padding: 12px 0;
 	text-align: center;
-	
+	transition: all .3s ease-in;
 }
 
+.nav ul li:hover,
 .nav ul li.current_page_item {
 	background-color: #df7900;
 }
@@ -142,21 +154,120 @@ input:focus {
 	width: 100%;
 	background-color: rgba(223, 121, 0, 0.75);
 }
+
+/** SEARCH FORM **/
+.search-form {
+	margin: 20px 0;
+}
+.search-form form {
+	position: relative;
+}
+.search-form form input, 
+.search-form form input:focus {
+	width: 100%;
+	border: 2px solid #e1e1e1;
+	border-radius: 10px;
+	height: 30px;
+}
+.search-form form button.search-submit {
+	position: absolute;
+	top: 0;
+	right: -6px;
+	height: 36px;
+	background-color: #e1800d;
+	border: none;
+	outline: none;
+	color: #fff;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+@media only screen and (min-width:768px) {
+	.search-form form input	{
+		width: 30%;
+		float: right;
+		-webkit-transition: width .3s ease-in-out;
+		-moz-transition: width .3s ease-in-out;
+		-o-transition: width .3s ease-in-out;
+		transition: width .3s ease-in-out;
+		
+	}
+	.search-form form input:focus {
+		width: 50%;
+	}
+
+}
 /* sidebar */
 .sidebar {
 
 }
 /* footer */
 .footer {
+	background-color: #323232;
+	border-top: 6px solid #e1800d;
+	margin-top: 40px;
+	padding: 10px 0 0 0;
+	
+}
+
+.footer h3,
+.footer .textwidget,
+.footer h3 a {
+	color: #fff !important;
+}
+
+.footer h3 {	
+	margin: 0 0 20px 0;
+	
+}
+
+.footer h3 a {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+.footer .wp-post-image {
+	border: 3px solid #464646;
+}
+
+.footer .widget_random_tips ul.blog-post li {
+	margin-bottom: 20px;
+}
+
+.footer .content-coupon {
+	margin-top: 40px;
+}
+.footer #coupons_widget-2 h3 {
+	display: none;
+}
+
+.footer .coupons li {
+	margin-bottom: 20px;
+}
+
+.copyright {
+	margin-top: 10px;
+	padding: 10px 0;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#474747+6,474747+50,474747+95&0+24,1+51,0+82 */
+	background: -moz-linear-gradient(left, rgba(71,71,71,0) 6%, rgba(71,71,71,0) 24%, rgba(71,71,71,0.96) 50%, rgba(71,71,71,1) 51%, rgba(71,71,71,0) 82%, rgba(71,71,71,0) 95%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(71,71,71,0) 6%,rgba(71,71,71,0) 24%,rgba(71,71,71,0.96) 50%,rgba(71,71,71,1) 51%,rgba(71,71,71,0) 82%,rgba(71,71,71,0) 95%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(71,71,71,0) 6%,rgba(71,71,71,0) 24%,rgba(71,71,71,0.96) 50%,rgba(71,71,71,1) 51%,rgba(71,71,71,0) 82%,rgba(71,71,71,0) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00474747', endColorstr='#00474747',GradientType=1 ); /* IE6-9 */
 
 }
 
+.copyright p {
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	margin: 0;
+} 
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
 
 .main-container {
-		padding: 0 40px;
+	padding: 0 40px;
 }
 
 /** ABOUT US **/
@@ -199,7 +310,8 @@ div.photo:nth-child(even) {
 	
 }
 
-.post .photo {
+.post .photo,
+.search .photo { /* remove photo rotation */
 	-webkit-transform: rotate(0deg);
 	-moz-transform: rotate(0deg);	
 	transform: rotate(0deg);
@@ -367,18 +479,7 @@ blockquote {
 	position: relative;
 }
 
-.testimonial-content > p:before {
-	content: '"';
-	display: block;
-	position: absolute;
-	left:0;
-	/* combination of top and line-height of zero places the double quotes in the right place. play around with these two settings in the chrome inspect tool in browser. */
-	top:60px;
-	line-height: 0;
-	color: #616161;
-	font-size: 150px;
-	font-family: cursive;
-}
+
 .from-testimonial p {
 	padding-right: 20px;
 	text-transform: uppercase;
@@ -396,11 +497,11 @@ blockquote {
 }
 
 /** BLOG  **/
-article.post h3 {
+article h3 { /* removed 'article.post' as this h3 applies to search results page too. */
 	margin-top: 0;
 
 }
-article.post h3 a {
+article h3 a {
 	color: #e1800d;
 	font-size: 28px;
 	font-size: 2.8rem;
@@ -408,17 +509,17 @@ article.post h3 a {
 
 }
 
-article.post a {
+article a {
 	color: #e1800d;
 	font-weight: bold;
 }
-article.post .post-information {
+article .post-information {
 	text-align: left;	
 	color: #5e5e5e;
 }
 
 @media only screen and (min-width:768px) {
-	article.post .post-information {
+	article .post-information {
 		text-align: right;	
 	}
 
@@ -582,6 +683,64 @@ section.slider .bx-viewport {
 	margin-top: 11px;
 }
 
+/** Testimonials **/
+.latest-testimonials ul {
+	padding: 0;
+	list-style: none;
+}
+
+.latest-testimonials ul li {
+	margin-bottom: 20px;
+}
+
+.latest-testimonials ul li .testimonial-content {
+	padding-left: 70px;
+	
+}
+ 
+.latest-testimonials ul li .testimonial-content p {
+	margin: 0 0 10px 0;
+	
+}
+
+.latest-testimonials ul li .testimonial-content a {
+	display: none;
+	
+}
+
+.quote {
+	position: relative;
+}
+.quote p:before {
+	content:  '“';
+	display: block;
+	position: absolute;
+	left:10px;
+	top: 70px;
+	color: #a1a1a1;
+	font-size: 180px;
+	 font-family: 'Pontano Sans', sans-serif;
+	line-height: 0;
+}
+
+.testimonial-section .quote p:before { /*this is to customize quote in testimonials page, not home page*/
+	color: #666;
+}
+
+.button,
+.button:hover {
+	background-color: #e1800d;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	padding: 5px 20px;
+	border-radius: 9px;
+}
+
+.latest-testimonials .button { /* align button to right only for the front page testimonial*/
+	float: right;
+}
 
 /*** GRID ***/
 /* support for the selector below is IE 9 or above. So it won't work on older browsers */
@@ -605,6 +764,10 @@ section.slider .bx-viewport {
 @media only screen and (min-width:768px) {
 	[class*='grid'] {
 		float: left;
+	}
+
+	.grid1-4 {
+		width: 25%;
 	}
 	.grid2-3 {
 		width: 66.6%;

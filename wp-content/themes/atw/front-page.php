@@ -94,9 +94,9 @@
 					?>
 
 					<li>
-						<div class="testimonial-content">
+						<div class="testimonial-content quote">
 							<?php html5wp_excerpt('html5wp_custom_post'); ?>
-							<div class="testimonial-person">
+							<div class="location-person">
 								<?php 
 									$name = get_field('person_name');
 									$location = get_field('location');
@@ -108,7 +108,7 @@
 					</li>
 
 					<?php endwhile; wp_reset_postdata(); ?>
-					<a href="<?php  echo get_permalink(12); ?>">View All</a>
+					<a href="<?php  echo get_permalink(12); ?>" class='button'>View All</a>
 
 				</ul>
 		</section> <!-- .latest-testimonials -->

@@ -4,21 +4,23 @@
 	</main>
 
 			<div class="clear"></div>
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
-
-				<!-- copyright -->
-				<p class="copyright">
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-				</p>
-				<!-- /copyright -->
-
-			</footer>
-			<!-- /footer -->
-
 		</div>
 		<!-- /wrapper -->
+		<!-- footer -->
+		<footer class="footer clear" role="contentinfo">
+			<div class="wrapper">
+				<div class="sidebar-widget">
+					<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')) ?>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class=" copyright">
+				<p>All rights reserved - Around The World &copy; <?php echo date('Y'); ?></p>
+			</div>
+
+		</footer>
+		<!-- /footer -->
+
 
 		<?php wp_footer(); ?>
 
