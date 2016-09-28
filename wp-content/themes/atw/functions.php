@@ -11,11 +11,15 @@
 /** CUSTOM WORDPRESS ADMIN LOGIN PAGE **/
 
 function admin_styles() {
-    wp_register_script('loginjs', get_template_directory_uri() . '/login/js/login.js', array('jquery'), '1.0.0', true); // loginjs
-    wp_enqueue_script('loginjs'); // Enqueue it!
+    
+    wp_enqueue_style('vegasCSS', get_template_directory_uri() . '/login/css/vegas.min.css', false);
+    wp_enqueue_style('loginCSS', get_template_directory_uri() . '/login/css/loginStyles.css', false);
 
-    wp_register_style('loginCSS', get_template_directory_uri() . '/login/css/loginStyles.css', false);
-    wp_enqueue_style('loginCSS'); // Enqueue it!
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_script('vegasjs', get_template_directory_uri() . '/login/js/vegas.min.js', array('jquery'), '1.0.0', true); // vegasjs
+    wp_enqueue_script('loginjs', get_template_directory_uri() . '/login/js/login.js', array('jquery'), '1.0.0', true); // loginjs
+
 }
 
 add_action('login_enqueue_scripts', 'admin_styles', 10);
