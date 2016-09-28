@@ -103,37 +103,56 @@ h1, h2, h3, h4, h5 {
 .logo {
 	text-align: center;
 	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
+
 .logo-img {
 	padding-top: 20px;
 }
 /* nav */
 .nav {
-	
+	display: none; /*don't display regular nav in mobile version. display slick_nav version */
 }
 
-.nav ul {
+.nav ul ,
+ul.slicknav_nav {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.nav ul li {
+.nav ul li,
+ul.slicknav_nav li {
 	padding: 12px 0;
 	text-align: center;
 	transition: all .3s ease-in;
 }
 
 .nav ul li:hover,
-.nav ul li.current_page_item {
+.nav ul li.current_page_item,
+ul.slicknav_nav li:hover,
+ul.slicknav_nav li.current_page_item {
 	background-color: #df7900;
 }
-.nav ul li a {
+.nav ul li a,
+ul.slicknav_nav li a {
 	font-size: 14px;
 	font-size: 1.4rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	color: #fff;
+}
+
+.slicknav_nav a:hover {
+	background: transparent !important; /* MY NOTES: this is to fix the white background while hovering. But there is no hover in mobile. so this is how you fix it. */
+	color: #fff !important;
+}
+.slicknav_btn {
+	background-color: #e1800d !important;	
+}
+
+.slicknav_menu .slicknav_menutxt {
+	text-shadow: none!important;
 }
 
 .featuredImage {
@@ -827,16 +846,22 @@ section.slider .bx-viewport {
 		float: left;
 		text-align: left;
 		margin-bottom: 0;
+		padding-bottom: 0;
 		
 	}
 	.logo-img {
 		max-height: 73px;
 		padding: 10px 40px;
 	}
+
+	.slicknav_menu {
+		display: none;	
+	}
 	.nav {
 		height: 73px;
 		width: 60%;
 		float: right;
+		display: block; /*display if not mobile*/
 	}
 	.nav ul {
 		height: 73px;

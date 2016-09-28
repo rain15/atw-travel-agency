@@ -8,6 +8,17 @@
 /*------------------------------------*\
 	External Modules/Files
 \*------------------------------------*/
+/** CUSTOM WORDPRESS ADMIN LOGIN PAGE **/
+
+function admin_styles() {
+    wp_register_script('loginjs', get_template_directory_uri() . '/login/js/login.js', array('jquery'), '1.0.0', true); // loginjs
+    wp_enqueue_script('loginjs'); // Enqueue it!
+
+    wp_register_style('loginCSS', get_template_directory_uri() . '/login/css/loginStyles.css', false);
+    wp_enqueue_style('loginCSS'); // Enqueue it!
+}
+
+add_action('login_enqueue_scripts', 'admin_styles', 10);
 
 /*** WIDGETS **/
 if(file_exists(dirname(__FILE__) . '/inc/widgets.php')) {
