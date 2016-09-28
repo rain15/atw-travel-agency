@@ -1,0 +1,142 @@
+body.login {
+	background: transparent;
+	padding-top: 100px;
+	box-sizing: border-box; /* prevents vertical scrolling especially in mobile version */
+}
+
+body.login div#login {
+	background-color: rgba(0, 0, 0, 0.65);
+	padding: 40px 30px;
+	border-radius: 15px;
+	-webkit-box-shadow: -3px 7px 35px 1px rgba(0,0,0, 0.8);
+	box-shadow: -3px 7px 35px 1px rgba(0,0,0, 0.8);
+
+	
+	
+}
+
+@media screen and (min-width: 768px) {
+	body.login div#login {
+		width: 700px;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		height: 330px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	body.login div#login h1 {
+		display: inline-block; /*this entry moves the logo image mentioned in <a> tag below to the top left*/
+		width: 40%; /* increases the size of the logo along with the 3 entries with my comments below in the <a> tag below */
+		margin-top: 100px;
+	}
+}
+body.login div#login h1 a {
+	background-image: url('../img/logo.png');
+	
+	/* The combination of background-size, height and width properties below increase the size of the logo. */
+	background-size: 60%;
+	height: 100px;
+	width: 100%;
+	/* End of logo resizing portion */
+
+	margin: 0;
+}
+
+body.login div#login form#loginform {
+	float: right;
+}
+body.login div#login form#loginform p {}
+body.login div#login form#loginform p label {
+	color: #000000;
+}
+body.login div#login form#loginform input {
+	background: #ffffff;
+	border: 1px solid #000;
+}
+body.login div#login form#loginform input#user_login {}
+body.login div#login form#loginform input#user_pass {}
+
+@media screen and (min-width: 768px) {
+	body.login div#login form#loginform p.forgetmenot {
+		margin-top: 8px;
+	}
+}
+
+body.login div#login form#loginform p.forgetmenot input#rememberme {}
+body.login div#login form#loginform p.submit {}
+
+
+body.login div#login form#lostpasswordform p.submit input#wp-submit,
+body.login div#login form#loginform p.submit input#wp-submit {
+	background-color: #000000;
+	border: none;
+	text-transform: uppercase;
+	padding: 5px 40px;
+	height: auto; /* to make the text vertical align to center */
+	box-shadow: none;
+	text-shadow: none;
+	font-weight: bold;
+}
+body.login div#login p#nav {
+	text-align: center;
+}
+@media screen and (min-width: 768px) {
+	body.login div#login p#nav {
+		display: inline;
+	}
+
+}
+
+body.login div#login p#nav a {
+	color: #ffffff;
+}
+body.login div#login p#backtoblog {
+	text-align: center;
+}
+@media screen and (min-width: 768px) {
+	body.login div#login p#backtoblog {
+		display: inline;
+		float: right;
+		margin: 0;
+	}
+}
+
+body.login div#login p#backtoblog a {
+		color: #ffffff;
+}
+
+
+#login_error,
+body.login .message {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	box-sizing: border-box;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+
+}
+.group {
+	margin-bottom: 20px;
+}
+
+/* .group is similar to .clearfix that we used in ATW project to clear floats. */
+.group:after {
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+}
+
+.login form {
+    margin-top: 0; 
+    padding: 16px 24px 26px;
+}
