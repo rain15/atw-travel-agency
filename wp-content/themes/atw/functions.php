@@ -8,6 +8,38 @@
 /*------------------------------------*\
 	External Modules/Files
 \*------------------------------------*/
+
+/* WordPress Security Measures */
+
+// If someone uses following link, http://<website-name>/?author=1, redirect to home page. Do not show admin userid that shows by default 
+function hpwp_template_redirect()
+{
+    if (is_author())
+    {
+         wp_redirect( home_url() ); exit;
+    }
+}
+add_action('template_redirect', 'hpwp_template_redirect');
+
+//Add generic Error Message for Login Page
+function hpwp_login_error_message($error){
+        $error = "<strong>ERROR:</strong> Invalid username or password.";
+
+        return $error;
+}
+add_filter('login_errors','hpwp_login_error_message');
+
+//Remove WP Generator META tag from core code
+// remove WordPress generator meta tag completely
+function wphp_remove_generator_tag() {
+    return '';
+}
+add_filter( 'the_generator', 'wphp_remove_generator_tag' );
+
+
+
+
+
 /** CUSTOM WORDPRESS ADMIN LOGIN PAGE **/
 
 function admin_styles() {
